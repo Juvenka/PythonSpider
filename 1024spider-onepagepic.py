@@ -16,14 +16,16 @@ while True:
 
     h = urllib.request.urlopen(urlop)
     saw.add(web)
-    html_web = bs4.BeautifulSoup(h,'lxml')
+    html_web = bs4.BeautifulSoup(h,'lxml',from_encoding='UTF-8')
     target = html_web.find(name='div',attrs={'class':'tpc_content','id':'read_tpc'}).find_all(name='img',attrs={'border':'0'})
     i = 0
     for p in target:
-        sex_pic = urllib.request.urlopen(p['src'])
+        pic = urllib.request.Request(p['src'],headers = headers)
+        sex_pic = urllib.request.urlopen(pic)
         i += 1
         f = open(str(i)+'.jpeg','wb')
         f.write(sex_pic.read())
         f.close()
+        print('第'+str(i)+'张下载完成')
     if len(will_see) == 0:
         break
