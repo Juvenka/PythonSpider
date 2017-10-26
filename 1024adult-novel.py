@@ -11,10 +11,12 @@ while True:
     URL = urllib.request.Request(firsturl,headers = headers)
     h = urllib.request.urlopen(URL)
     html_web = bs4.BeautifulSoup(h,'html5lib',from_encoding='UTF-8')
-    target = html_web.find(name='div',attrs={'class':'fr'})
-    q = target.find_all('a')
-    print(target.a)
-    print(len(target.contents))
+    target = html_web.find_all(name='a',attrs={'class':'a2 fn'})
+    i = 1
+    print('客人想看点什么？我们有:')
+    for t in target:
+        print(str(i)+'、'+t.string,end=' ')
+        i += 1
     break
     i = 0
     for p in target:
