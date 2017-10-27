@@ -25,10 +25,10 @@ while True:
 
     halfTybe = num[input()].parent['href']
     Tybe = Referer + halfTybe
-    print(Tybe)
     Tybe_url = urllib.request.Request(Tybe,headers=headers)
     Tybe_open = urllib.request.urlopen(Tybe_url)
     Tybe_page = bs4.BeautifulSoup(Tybe_open,'html5lib', from_encoding='UTF-8')
+    print(Tybe_page)
 
 
 
