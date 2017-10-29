@@ -2,9 +2,7 @@ import urllib.request
 import bs4
 import collections
 import os
-import sys
-import io
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8') #改变标准输出的默认编码
+
 firsturl = "http://1024.2048xd.info/pw/thread.php?fid=17"
 will_see = collections.deque()
 saw = set()
