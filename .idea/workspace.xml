@@ -12,11 +12,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="1024adult-novel.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/1024adult-novel.py">
+        <entry file="file://$PROJECT_DIR$/1024spider/1024adult-novel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-              <folding />
+            <state relative-caret-position="292">
+              <caret line="43" column="20" lean-forward="true" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,6 +75,11 @@
             <path>
               <item name="Pycharmprojects" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pycharmprojects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pycharmprojects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pycharmprojects" type="462c0819:PsiDirectoryNode" />
+              <item name="1024spider" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -224,10 +231,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="97" width="1267" height="890" extended-state="1" />
+    <frame x="4" y="97" width="1267" height="890" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22949462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32908162" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32908162" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32908162" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31760204" sideWeight="0.4940429" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39609483" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -238,12 +246,18 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31587058" sideWeight="0.5059571" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32908162" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32908162" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31760204" sideWeight="0.4940429" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22949462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39609483" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295964" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -374,5 +388,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/1024spider/1024adult-novel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="43" column="20" lean-forward="true" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1024adult-novel.py" />
+    <entry file="file://$PROJECT_DIR$/1024adult-novel.py" />
+    <entry file="file://$PROJECT_DIR$/1024adult-novel.py" />
+    <entry file="file://$PROJECT_DIR$/1024adult-novel.py" />
+    <entry file="file://$PROJECT_DIR$/1024adult-novel.py" />
+    <entry file="file://$PROJECT_DIR$/1024spider-onepagepic.py" />
+    <entry file="file://$PROJECT_DIR$/1024adult-novel.py" />
+    <entry file="file://$PROJECT_DIR$/1024adult-novel.py" />
+    <entry file="file://$PROJECT_DIR$/1024.py" />
+    <entry file="file://$PROJECT_DIR$/1024.py" />
+    <entry file="file://$PROJECT_DIR$/1024.py" />
+    <entry file="file://$PROJECT_DIR$/dianyin.py" />
+    <entry file="file://$PROJECT_DIR$/1024.py" />
+    <entry file="file://$PROJECT_DIR$/dianyin.py" />
+    <entry file="file://$PROJECT_DIR$/dianyin.py" />
+    <entry file="file://E:/Python/Python36-32/Lib/site-packages/bs4/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/8.jpeg" />
+    <entry file="file://$PROJECT_DIR$/1024.py" />
+    <entry file="file://$PROJECT_DIR$/11.jpeg" />
+    <entry file="file://$PROJECT_DIR$/adfsdf.py" />
+    <entry file="file://$PROJECT_DIR$/1024spider-onepagepic.py" />
+    <entry file="file://$PROJECT_DIR$/erotic_pic.py" />
+    <entry file="file://$PROJECT_DIR$/asdf.py" />
+    <entry file="file://$PROJECT_DIR$/1024adult-novel.py" />
   </component>
 </project>
