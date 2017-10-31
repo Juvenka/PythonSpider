@@ -35,16 +35,16 @@ for tar in tar_tag:
     if i <= 6:
         continue
     else:
-        f = open('C:\\Users\\Administrator\\Desktop\\erotic_novels' + os.sep + series + tar.string + '.txt', 'w')
         erotic_novel = urllib.request.Request(Referer+tar['href'], headers=headers)
         try:
-            erotic_novel_open = urllib.request.urlopen(erotic_novel,timeout=10)
+            erotic_novel_open = urllib.request.urlopen(erotic_novel, timeout=2)
             erotic_novel_html = bs4.BeautifulSoup(erotic_novel_open, 'lxml', from_encoding='UTF-8')
             novel = erotic_novel_html.find(name='div', attrs={'class': 'tpc_content', 'id': 'read_tpc'})
         except socket.timeout as e:
             continue
+        f = open('C:\\Users\\Administrator\\Desktop\\erotic_novels' + os.sep + series + tar.string + '.txt', 'w')
         for nov in novel.stripped_strings:
-            nov = nov.replace('\xa0' , ' ')
+            nov = nov.replace('\xa0', ' ')
             nov = nov.replace('\ue0ff', ' ')
             nov = nov.replace('\ue197', ' ')
             f.write('    '+nov+'\n\n')
