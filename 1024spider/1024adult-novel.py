@@ -1,5 +1,4 @@
-import urllib.request
-import bs4
+import bs4,urllib.request
 import os
 import socket,urllib.error
 firsturl = "http://1024.2048xd.info/pw/thread.php?fid=17"
@@ -31,14 +30,14 @@ i = 0
 if not os.path.exists('C:\\Users\\Administrator\\Desktop\\erotic_novels'):
     os.mkdir('C:\\Users\\Administrator\\Desktop\\erotic_novels')
 for tar in tar_tag:
-    i += 1
-    if i <= 6:
+    if tar.parent.parent.find('img') != None:
         continue
     else:
+        i += 1
         erotic_novel = urllib.request.Request(Referer+tar['href'], headers=headers)
         try:
             erotic_novel_open = urllib.request.urlopen(erotic_novel, timeout=1)
-            erotic_novel_html = bs4.BeautifulSoup(erotic_novel_open, 'lxml', from_encoding='UTF-8')
+            erotic_novel_html = bs4.BeautifulSoup(erotic_novel_open, 'html5lib', from_encoding='UTF-8')
             novel = erotic_novel_html.find(name='div', attrs={'class': 'tpc_content', 'id': 'read_tpc'})
         except urllib.error.HTTPError as e:
             print('HTTPError')
@@ -50,18 +49,18 @@ for tar in tar_tag:
             print('socket.timeout')
             continue
         f = open('C:\\Users\\Administrator\\Desktop\\erotic_novels' + os.sep + series + tar.string + '.txt', 'w')
-        for nov in novel.stripped_strings:
+        for nov in novel.strings:
             nov = nov.replace('\xa0', ' ')
             nov = nov.replace('\ue0ff', ' ')
             nov = nov.replace('\ue197', ' ')
             nov = nov.replace('\ue1d2', ' ')
             nov = nov.replace('\ue4c6', ' ')
             try:
-                f.write('    '+nov+'\n\n')
+                f.write('  '+nov+'\n\n')
             except UnicodeEncodeError as e:
-                print(UnicodeEncodeError)
                 print(e)
                 continue
         f.close()
-        print('第'+str(i-6)+'篇'+tar.string+'下载完毕')
-print('第一页'+str(i-6)+'下载完')
+        print('第'+str(i)+'篇'+tar.string+'下载完毕')
+print('第一页'+str(i)+'下载完')
+
