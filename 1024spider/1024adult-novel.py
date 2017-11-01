@@ -34,7 +34,7 @@ for tar in tar_tag:
         continue
     else:
         i += 1
-        erotic_novel = urllib.request.Request(Referer+tar['href'], headers=headers)
+        erotic_novel = urllib.request.Request(Referer+ tar['href'], headers=headers)
         try:
             erotic_novel_open = urllib.request.urlopen(erotic_novel, timeout=1)
             erotic_novel_html = bs4.BeautifulSoup(erotic_novel_open, 'html5lib', from_encoding='UTF-8')
