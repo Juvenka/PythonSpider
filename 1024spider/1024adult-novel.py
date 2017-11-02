@@ -1,6 +1,6 @@
 import os
 import socket
-import urllib.error
+import urllib.request
 import bs4
 
 firsturl = "http://1024.2048xd.info/pw/thread.php?fid=17"
