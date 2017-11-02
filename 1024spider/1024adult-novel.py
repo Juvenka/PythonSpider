@@ -1,6 +1,9 @@
 import os
 import socket
+<<<<<<< HEAD
 import urllib.error
+=======
+>>>>>>> 780b507520d6bf55668c827cf8e0676e982fa99d
 import urllib.request
 import bs4
 
