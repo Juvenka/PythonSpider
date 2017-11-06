@@ -1,6 +1,9 @@
 import os
 import socket
+<<<<<<< HEAD
 import urllib.request
+=======
+>>>>>>> parent of 780b507... 11.2
 import urllib.error
 import bs4
 firsturl = "http://1024.2048xd.info/pw/thread.php?fid=17"
