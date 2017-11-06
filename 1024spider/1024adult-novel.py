@@ -1,9 +1,6 @@
 import os
 import socket
-<<<<<<< HEAD
 import urllib.error
-=======
->>>>>>> 780b507520d6bf55668c827cf8e0676e982fa99d
 import urllib.request
 import bs4
 
@@ -42,7 +39,7 @@ for tar in tar_tag:
         i += 1
         erotic_novel = urllib.request.Request(Referer + tar['href'], headers=headers)
         try:
-            erotic_novel_open = urllib.request.urlopen(erotic_novel, timeout=1)
+            erotic_novel_open = urllib.request.urlopen(erotic_novel, timeout=2)
             erotic_novel_html = bs4.BeautifulSoup(erotic_novel_open, 'html5lib', from_encoding='UTF-8')
             novel = erotic_novel_html.find(name='div', attrs={'class': 'tpc_content', 'id': 'read_tpc'})
         except urllib.error.HTTPError as e:
