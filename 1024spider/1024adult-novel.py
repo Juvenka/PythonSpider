@@ -1,20 +1,8 @@
 import os
 import socket
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import urllib.error
-=======
->>>>>>> 780b507520d6bf55668c827cf8e0676e982fa99d
 import urllib.request
-=======
-import urllib.error
->>>>>>> parent of 780b507... 11.2
-=======
-import urllib.error
->>>>>>> parent of 780b507... 11.2
 import bs4
-
 firsturl = "http://1024.2048xd.info/pw/thread.php?fid=17"
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '
                          'Chrome/61.0.3163.79 Safari/537.36'}
