@@ -4,6 +4,8 @@ import http
 url = 'https://www.zhihu.com/topic/19776749/organize/entire'
 
 zhihu_html = urllib.request.urlopen(url)
+print(zhihu_html.headers['vary'])
+
 zhihu_soup = BeautifulSoup(zhihu_html,'lxml')
 topic = zhihu_soup.find_all(name='ul',attrs={'class':'zm-topic-organize-list'})
 print(zhihu_soup)
