@@ -46,7 +46,7 @@ data = {
     'password': 'Zxw1213#',
     '_xsrf': xsrf,
     "captcha": captcha,
-    'captcha_type': 'cn',}
+    'captcha_type': 'cn'}
 
 response = s.post(login_url, data=data, headers=headers)
 login_code = response.json()
