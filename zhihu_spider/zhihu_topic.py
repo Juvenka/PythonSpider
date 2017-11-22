@@ -39,7 +39,6 @@ except:
     captcha = json.dumps(captcha)
     #登陆
     postdata = {'email': '362696076@qq.com','password': 'Zxw1213#','_xsrf': xsrf,"captcha": captcha,'captcha_type': 'cn'}
-    print(postdata)
     result = s.post('https://www.zhihu.com/login/email', data=postdata, headers=headers).json()
     print(result['msg'])
     #保存cookies
