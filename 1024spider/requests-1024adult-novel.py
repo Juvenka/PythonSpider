@@ -32,7 +32,7 @@ for tar in tar_tag:
     else:
         i += 1
         try:
-            erotic_novel_open = requests.get(Referer + tar['href'], headers=headers, timeout=0.5)
+            erotic_novel_open = requests.get(Referer + tar['href'], headers=headers, timeout=2)
             erotic_novel_html = bs4.BeautifulSoup(erotic_novel_open.content, 'html5lib', from_encoding='UTF-8')
             novel = erotic_novel_html.find(name='div', attrs={'class': 'tpc_content', 'id': 'read_tpc'})
         except requests.ConnectionError as e:
