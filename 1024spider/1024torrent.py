@@ -4,8 +4,8 @@ from selenium import webdriver
 
 #chrome_options = webdriver.ChromeOptions()
 #chrome_options.add_argument('--headless')
-#driver = webdriver.Chrome('e:\chromedriver.exe', chrome_options=chrome_options)
-driver = webdriver.Chrome('e:\chromedriver.exe')
+#driver = webdriver.Chrome('D:\chromedriver', chrome_options=chrome_options)
+driver = webdriver.Chrome('D:\chromedriver')
 url = "http://1024.skswk9.pw/pw/thread.php?fid=3"
 headers = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -28,25 +28,6 @@ r = requests.get(url, headers=headers).content
 soup = bs4.BeautifulSoup(r, 'html5lib')
 tag = soup.find_all('a', attrs={'href': True, 'id': True})
 for tag in tag:
-<<<<<<< HEAD
-        if ('騎兵' in tag.string) or ('动漫' in tag.string) or ('有碼' in tag.string) or ('灣搭' in tag.string):
-            url = 'http://1024.skswk9.pw/pw/' + tag['href']
-            r = requests.get(url,headers=headers).content
-            soup = bs4.BeautifulSoup(r,'html5lib')
-            tag = soup.find('div',attrs={'class':"tpc_content",'id':"read_tpc"}).find_all('a',attrs={'href':True,'target':"_blank"})
-            for tag in tag:
-                if tag.string is not None:
-                    print(tag)
-                    print(tag.string)
-                    break
-                    driver.get(tag['href'])
-                    r = driver.find_element_by_xpath('//*[@id="down_btn"]').click()
-                    with open('1.torrent','wb') as f:
-                        f.write(r.content)
-                    print(tag)
-                    break
-            break
-=======
     if ('騎兵' in tag.string) or ('动漫' in tag.string) or ('有碼' in tag.string) or ('灣搭' in tag.string):
         url = 'http://1024.skswk9.pw/pw/' + tag['href']
         r = requests.get(url, headers=headers).content
@@ -58,7 +39,6 @@ for tag in tag:
                 print(tag_.string)
                 driver.get(tag_['href'])
                 driver.find_element_by_id('down_btn').click()
-                driver.quit()
+                driver.close()
                 break
         break
->>>>>>> eee99940569d397daedf2a02992adf5ae4ad1baf

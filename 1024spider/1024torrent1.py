@@ -1,4 +1,3 @@
-#http://9453hot.com/forum-41-1.html
 
 import requests
 import bs4
