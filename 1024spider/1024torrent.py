@@ -1,7 +1,7 @@
 import requests
 import bs4
 from selenium import webdriver
-
+from selenium.common.exceptions import TimeoutException
 #chrome_options = webdriver.ChromeOptions()
 #chrome_options.add_argument('--headless')
 #driver = webdriver.Chrome('D:\chromedriver', chrome_options=chrome_options)
@@ -36,9 +36,14 @@ for tag in tag:
             find_all('a', attrs={'href': True, 'target': "_blank"})
         for tag_ in tag:
             if (tag_.string is not None) and (tag_.string != '點擊進入下載'):
-                print(tag_.string)
-                driver.get(tag_['href'])
-                driver.find_element_by_id('down_btn').click()
-                driver.close()
-                break
-        break
+                #print(tag_.string)
+                try:
+                    driver.set_page_load_timeout(3)
+                    driver.get(tag_['href'])
+                except TimeoutException as e:
+                    print(e)
+                    driver.find_element_by_id('down_btn').click()
+                    driver.close()
+                    print(driver.window_handles)
+
+

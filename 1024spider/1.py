@@ -6,8 +6,13 @@ from selenium.common.exceptions import TimeoutException
 #chrome_options = webdriver.ChromeOptions()
 #chrome_options.add_argument('--headless')
 #driver = webdriver.Chrome('d:\chromedriver.exe', chrome_options=chrome_options)
+<<<<<<< HEAD
 driver = webdriver.Chrome('e:\chromedriver.exe')
 driver.set_page_load_timeout(5)
+=======
+driver = webdriver.Chrome('d:\chromedriver.exe')
+driver.set_page_load_timeout(3)
+>>>>>>> bf0c0394a89eae7ed6107bf018187b2dec4fe6c2
 #driver.implicitly_wait(10)
 #driver.execute_async_script('document.title')
 #set_script_timeout(time_to_wait) - 在一个 execute_async_script 调用期间，设置脚本等待的时间
@@ -15,6 +20,7 @@ try:
     driver.get("http://www3.uptorrentfilespacedownhostabc.net/updowm/file.php/OZYDZ9m.html")
 except TimeoutException as e:
     print(e)
+<<<<<<< HEAD
 driver.get_screenshot_as_file('C:\\Users\Administrator\Downloads\pic.png')
 
 try:
@@ -25,5 +31,9 @@ try:
     element.click()
     print(driver.window_handles)
 finally:
+=======
+    driver.find_element_by_id('down_btn').click()
+>>>>>>> bf0c0394a89eae7ed6107bf018187b2dec4fe6c2
     driver.close()
     print(driver.window_handles)
+
