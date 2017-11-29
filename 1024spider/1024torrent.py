@@ -2,23 +2,34 @@ import requests
 import bs4
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
-#chrome_options = webdriver.ChromeOptions()
-#chrome_options.add_argument('--headless')
-#driver = webdriver.Chrome('D:\chromedriver', chrome_options=chrome_options)
-driver = webdriver.Chrome('D:\chromedriver')
+# chrome_options = webdriver.ChromeOptions()
+# chrome_options.add_argument('--headless')
+# driver = webdriver.Chrome('D:\chromedriver', chrome_options=chrome_options)
+# driver = webdriver.Chrome('D:\chromedriver')
 url = "http://1024.skswk9.pw/pw/thread.php?fid=3"
+headers1 = {
+    'Host': 'www3.uptorrentfilespacedownhostabc.net',
+    'Connection': 'keep-alive',
+    'Content-Length': '35',
+    'Cache-Control': 'max-age=0',
+    'Origin': 'http://www3.uptorrentfilespacedownhostabc.net',
+    'Upgrade-Insecure-Requests': '1',
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 '
+                  'Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'Referer': 'http://www3.uptorrentfilespacedownhostabc.net/updowm/file.php/OZYDZ9m.html',
+    'Accept-Encoding': 'gzip, deflate',
+    'Accept-Language': 'zh-CN,zh;q=0.9',
+    'Cookie': '__cfduid=d0497e3f785a62ad6020160c209a7f7161511853230; a4184_pages=4; a4184_times=2; __tins__18654184='
+              '%7B%22sid%22%3A1511934196373%2C%22vd%22%3A2%2C%22expires%22%3A1511936829816%7D; __51cke__=; __51laig__=2'
+}
 headers = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
     'Accept-Encoding': 'gzip, deflate',
     'Accept-Language': 'zh-CN,zh;q=0.8',
     'Cache-Control': 'max-age=0',
     'Connection': 'keep-alive',
-    'Cookie': '__cfduid=dca3abd512615187557755e6e4c9b91e61509545168; aafaf_ol_offset=97; aafaf_readlog=%2C734300%2C; '
-              'visid_incap_1237688=Pbqrd0t6RpK+1Ohe33h27jo+GVoAAAAAQUIPAAAAAADmt0J0AR4HdbpKp/rlaoR5; incap_ses_636_1237'
-              '688=bh4CdSpO9UuhzcU3CofTCDo+GVoAAAAArEuaH5QVGCELxwPVoGOb5g==; aafaf_lastpos=F17; aafaf_lastvisit=341%091'
-              '511603847%09%2Fpw%2Fthread.php%3Ffid%3D17; aafaf_threadlog=%2C3%2C17%2C; a0888_pages=2; a0888_times=3; _'
-              '_tins__17810888=%7B%22sid%22%3A1511603755874%2C%22vd%22%3A2%2C%22expires%22%3A1511605561640%7D; __51cke_'
-              '_=; __51laig__=2',
     'Upgrade-Insecure-Requests': '1',
     'Host': '1024.skswk9.pw',
     'Referer': 'http://1024.skswk9.pw/pw/thread.php?fid=3',
@@ -28,7 +39,8 @@ r = requests.get(url, headers=headers).content
 soup = bs4.BeautifulSoup(r, 'html5lib')
 tag = soup.find_all('a', attrs={'href': True, 'id': True})
 for tag in tag:
-    if ('騎兵' in tag.string) or ('动漫' in tag.string) or ('有碼' in tag.string) or ('灣搭' in tag.string):
+    if ('骑兵' in tag.string) or ('騎兵' in tag.string) or ('动漫' in tag.string) \
+            or ('有碼' in tag.string) or ('灣搭' in tag.string):
         url = 'http://1024.skswk9.pw/pw/' + tag['href']
         r = requests.get(url, headers=headers).content
         soup = bs4.BeautifulSoup(r, 'lxml')
@@ -36,14 +48,21 @@ for tag in tag:
             find_all('a', attrs={'href': True, 'target': "_blank"})
         for tag_ in tag:
             if (tag_.string is not None) and (tag_.string != '點擊進入下載'):
-                #print(tag_.string)
-                try:
-                    driver.set_page_load_timeout(3)
-                    driver.get(tag_['href'])
-                except TimeoutException as e:
-                    print(e)
-                    driver.find_element_by_id('down_btn').click()
-                    driver.close()
-                    print(driver.window_handles)
+                r = requests.get(tag_['href']).content
+                soup = bs4.BeautifulSoup(r, 'html5lib')
+                tag_id = soup.find('input', attrs={'id': 'id'})
+                tag_name = soup.find('input', attrs={'id': 'name'})
+                data = {'type': 'torrent', 'id': tag_id['value'], 'name': tag_name['value']}
+                r = requests.post('http://www3.uptorrentfilespacedownhostabc.net/updowm/down.php',
+                                  data=data, headers=headers1)
+                with open(tag_name['value'] + '.torrent', 'wb') as f:
+                    f.write(r.content)
 
 
+
+#<form action="../down.php" method="post">
+ # <input type="hidden" value="torrent" id="type" name="type">
+ # <input type="hidden" value="P00IEJf" id="id" name="id">
+ # <input type="hidden" value="SCOP473" id="name" name="name">
+#  <input type="submit" value="  下 載 /  down  " onclick="setpos();"class="round_box" id="down_btn">
+# </form>
