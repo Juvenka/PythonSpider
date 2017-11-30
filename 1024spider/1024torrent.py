@@ -1,7 +1,8 @@
 import requests
 import bs4
-from selenium import webdriver
-from selenium.common.exceptions import TimeoutException
+import os
+# from selenium import webdriver
+# from selenium.common.exceptions import TimeoutException
 # chrome_options = webdriver.ChromeOptions()
 # chrome_options.add_argument('--headless')
 # driver = webdriver.Chrome('D:\chromedriver', chrome_options=chrome_options)
@@ -35,6 +36,8 @@ headers = {
     'Referer': 'http://1024.skswk9.pw/pw/thread.php?fid=3',
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 '
                   '(KHTML, like Gecko) Chrome/61.0.3163.79 Safari/537.36'}
+if not os.path.exists('C:\\Users\\Administrator\\Desktop\\torrent'):
+    os.mkdir('C:\\Users\\Administrator\\Desktop\\torrent')
 r = requests.get(url, headers=headers).content
 soup = bs4.BeautifulSoup(r, 'html5lib')
 tag = soup.find_all('a', attrs={'href': True, 'id': True})
@@ -55,14 +58,5 @@ for tag in tag:
                 data = {'type': 'torrent', 'id': tag_id['value'], 'name': tag_name['value']}
                 r = requests.post('http://www3.uptorrentfilespacedownhostabc.net/updowm/down.php',
                                   data=data, headers=headers1)
-                with open(tag_name['value'] + '.torrent', 'wb') as f:
+                with open('C:\\Users\\Administrator\\Desktop\\torrent\\' + tag_name['value'] + '.torrent', 'wb') as f:
                     f.write(r.content)
-
-
-
-#<form action="../down.php" method="post">
- # <input type="hidden" value="torrent" id="type" name="type">
- # <input type="hidden" value="P00IEJf" id="id" name="id">
- # <input type="hidden" value="SCOP473" id="name" name="name">
-#  <input type="submit" value="  下 載 /  down  " onclick="setpos();"class="round_box" id="down_btn">
-# </form>
