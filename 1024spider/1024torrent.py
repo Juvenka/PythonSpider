@@ -6,14 +6,11 @@ import requests.exceptions
 
 url = "http://1024.skswk9.pw/pw/simple/index.php?f3.html"
 headers1 = {
-    'Host': 'www3.uptorrentfilespacedownhostabc.net',
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 '
                   'Safari/537.36'}
 headers2 = {
-    'Host': 'www3.uptorrentfilespacedownhostabc.net',
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 '
                   'Safari/537.36',
-    'Origin': 'http://www3.uptorrentfilespacedownhostabc.net',
     'Content-Type': 'application/x-www-form-urlencoded'}
 headers = {
     'Host': '1024.skswk9.pw',
@@ -37,17 +34,53 @@ for i in tag:
         headers1['Referer'] = url
         for i_ in tag_:
             if (i_.string is not None) and (i_.string != '點擊進入下載'):
-                r = requests.get(i_['href'], headers=headers1).content
+                if 'org' in i_.string:
+                    url_ = 'http://www3.uptorrentfilespacedownhostabc.org/updowm/down.php'
+                    headers1['Host'] = 'www3.uptorrentfilespacedownhostabc.org'
+                    headers2['Host'] = 'www3.uptorrentfilespacedownhostabc.org'
+                elif 'biz' in i_.string:
+                    url_ = 'http://www3.uptorrentfilespacedownhostabc.biz/updowm/down.php'
+                    headers1['Host'] = 'www3.uptorrentfilespacedownhostabc.biz'
+                    headers2['Host'] = 'www3.uptorrentfilespacedownhostabc.biz'
+                elif 'net' in i_.string:
+                    url_ = 'http://www3.uptorrentfilespacedownhostabc.net/updowm/down.php'
+                    headers1['Host'] = 'www3.uptorrentfilespacedownhostabc.net'
+                    headers2['Host'] = 'www3.uptorrentfilespacedownhostabc.net'
+                elif 'pw' in i_.string:
+                    url_ = 'http://www3.uptorrentfilespacedownhostabc.pw/updowm/down.php'
+                    headers1['Host'] = 'www3.uptorrentfilespacedownhostabc.pw'
+                    headers2['Host'] = 'www3.uptorrentfilespacedownhostabc.pw'
+                elif 'com' in i_.string:
+                    url_ = 'http://www3.uptorrentfilespacedownhostabc.com/updowm/down.php'
+                    headers1['Host'] = 'www3.uptorrentfilespacedownhostabc.com'
+                    headers2['Host'] = 'www3.uptorrentfilespacedownhostabc.com'
+                elif 'club' in i_.string:
+                    url_ = 'http://www3.uptorrentfilespacedownhostabc.club/updowm/down.php'
+                    headers1['Host'] = 'www3.uptorrentfilespacedownhostabc.club'
+                    headers2['Host'] = 'www3.uptorrentfilespacedownhostabc.club'
+                else:
+                    url_ = 'http://www3.uptorrentfilespacedownhostabc.info/updowm/down.php'
+                    headers1['Host'] = 'www3.uptorrentfilespacedownhostabc.info'
+                    headers2['Host'] = 'www3.uptorrentfilespacedownhostabc.info'
+                try:
+                    r = requests.get(i_['href'], headers=headers1).content
+                except requests.exceptions.TooManyRedirects as e:
+                    print(e)
+                    continue
                 soup = bs4.BeautifulSoup(r, 'lxml')
                 tag_id = soup.find('input', attrs={'id': 'id'})
                 tag_name = soup.find('input', attrs={'id': 'name'})
                 headers2['Referer'] = i_['href']
                 data = {'type': 'torrent', 'id': tag_id['value'], 'name': tag_name['value']}
-                r = requests.post('http://www3.uptorrentfilespacedownhostabc.net/updowm/down.php', data=data, headers=headers2, timeout=5)
-                with open('C:\\Users\\Administrator\\Desktop\\torrent\\' + tag_name['value'] + '.torrent', 'wb') as f:
-                    f.write(r.content)
-                y += 1
-                print(y)
-                sleep(2)
+                try:
+                    r = requests.post(url_, data=data, headers=headers2, timeout=5)
+                    with open('C:\\Users\\Administrator\\Desktop\\torrent\\' + tag_name['value'] + '.torrent', 'wb') as f:
+                        f.write(r.content)
+                    y += 1
+                    print(y)
+                except requests.exceptions.ConnectionError as e:
+                    print(e)
+                except requests.exceptions.ReadTimeout as e:
+                    print(e)
 print(headers1)
 print(headers2)
