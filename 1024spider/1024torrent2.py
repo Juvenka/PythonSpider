@@ -24,12 +24,7 @@ for i in tag:
         soup = bs4.BeautifulSoup(r, 'lxml')
         tag_ = soup.find('td', attrs={'colspan': '2','class': 'tpc_content'}).\
             find_all('a', attrs={'href': True, 'target': "_blank"})
-        z = y
-        y = 0
-        print(z)
         for i_ in tag_:
             if (i_.string is not None) and (i_.string != '點擊進入下載'):
-                y += 1
-                x += 1
-print(y)
-print(x)
+                print(i_.string)
+                break

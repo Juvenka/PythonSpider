@@ -1,8 +1,6 @@
-import requests
+import requests.exceptions
 import bs4
 import os
-from time import sleep
-import requests.exceptions
 
 url = "http://1024.skswk9.pw/pw/simple/index.php?f3.html"
 headers1 = {
@@ -23,6 +21,7 @@ r = requests.get(url, headers=headers).content
 soup = bs4.BeautifulSoup(r, 'html5lib')
 tag = soup.find_all('li')
 y = 0
+x = 0
 for i in tag:
     i = i.find('a')
     if ('骑兵' in i.string) or ('騎兵' in i.string) or ('动漫' in i.string) or ('有碼' in i.string) or ('灣搭' in i.string):
@@ -32,6 +31,8 @@ for i in tag:
         tag_ = soup.find('td', attrs={'colspan': '2', 'class': 'tpc_content'}).\
             find_all('a', attrs={'href': True, 'target': "_blank"})
         headers1['Referer'] = url
+        x += 1
+        print(x)
         for i_ in tag_:
             if (i_.string is not None) and (i_.string != '點擊進入下載'):
                 if 'org' in i_.string:
@@ -66,18 +67,19 @@ for i in tag:
                     r = requests.get(i_['href'], headers=headers1).content
                 except requests.exceptions.TooManyRedirects as e:
                     print(e)
-                    continue
                 soup = bs4.BeautifulSoup(r, 'lxml')
                 tag_id = soup.find('input', attrs={'id': 'id'})
                 tag_name = soup.find('input', attrs={'id': 'name'})
                 headers2['Referer'] = i_['href']
-                data = {'type': 'torrent', 'id': tag_id['value'], 'name': tag_name['value']}
                 try:
+                    data = {'type': 'torrent', 'id': tag_id['value'], 'name': tag_name['value']}
                     r = requests.post(url_, data=data, headers=headers2, timeout=5)
                     with open('C:\\Users\\Administrator\\Desktop\\torrent\\' + tag_name['value'] + '.torrent', 'wb') as f:
                         f.write(r.content)
                     y += 1
                     print(y)
+                except TypeError as e:
+                    print(e)
                 except requests.exceptions.ConnectionError as e:
                     print(e)
                 except requests.exceptions.ReadTimeout as e:
