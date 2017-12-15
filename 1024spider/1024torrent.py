@@ -1,7 +1,9 @@
 import requests.exceptions
 import bs4
 import os
-
+import time
+start = time.clock()
+# 中间写上代码块
 url = "http://1024.skswk9.pw/pw/simple/index.php?f3.html"
 headers1 = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 '
@@ -84,5 +86,5 @@ for i in tag:
                     print(e)
                 except requests.exceptions.ReadTimeout as e:
                     print(e)
-print(headers1)
-print(headers2)
+end = time.clock()
+print('Running time: %s Seconds' % (end-start))

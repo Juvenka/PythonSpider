@@ -1,6 +1,11 @@
 import requests
 import os
 import bs4
+import time
+start =time.clock()
+
+#中间写上代码块
+
 firsturl = "http://1024.2048xd.info/pw/thread.php?fid=17"
 headers = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -16,7 +21,6 @@ headers = {
                   '(KHTML, like Gecko) Chrome/61.0.3163.79 Safari/537.36'}
 URL = requests.get(firsturl, headers=headers, timeout=None)
 html_web = bs4.BeautifulSoup(URL.content, 'html5lib')
-print(html_web)
 target = html_web.find_all(name='a', attrs={'class': 'a2 fn'})
 i = 1
 Referer = 'http://1024.2048xd.info/pw/'
@@ -65,3 +69,5 @@ for tar in tar_tag:
         f.close()
         print('第'+str(i)+'篇'+tar.string+'下载完毕')
 print('第一页'+str(i)+'下载完')
+end = time.clock()
+print('Running time: %s Seconds'%(end-start))
