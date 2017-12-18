@@ -17,8 +17,8 @@ headers = {
     'Referer': 'http://1024.skswk9.pw/pw/simple/index.php?f3.html',
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 '
                   '(KHTML, like Gecko) Chrome/61.0.3163.79 Safari/537.36'}
-if not os.path.exists('C:\\Users\\torrent'):
-    os.mkdir('C:\\Users\\torrent')
+if not os.path.exists('C:\\Users\Public\\torrent'):
+    os.mkdir('C:\\Users\Public\\torrent')
 r = requests.get(url, headers=headers).content
 soup = bs4.BeautifulSoup(r, 'html5lib')
 tag = soup.find_all('li')
@@ -77,7 +77,7 @@ for i in tag:
                 try:
                     data = {'type': 'torrent', 'id': tag_id['value'], 'name': tag_name['value']}
                     r = requests.post(url_, data=data, headers=headers2, timeout=5)
-                    with open("C:\\Users\\torrent\\" + tag_name['value'] + '.torrent', 'wb') as f:
+                    with open("C:\\Users\Public\\torrent\\" + tag_name['value'] + '.torrent', 'wb') as f:
                         f.write(r.content)
                     y += 1
                     print(y)
