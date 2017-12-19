@@ -70,6 +70,9 @@ for i in tag:
                 except requests.exceptions.ReadTimeout as e:
                     print(e)
                     continue
+                except requests.exceptions.ConnectionError as e:
+                    print(e)
+                    continue
                 soup = bs4.BeautifulSoup(r, 'lxml')
                 tag_id = soup.find('input', attrs={'id': 'id'})
                 tag_name = soup.find('input', attrs={'id': 'name'})
