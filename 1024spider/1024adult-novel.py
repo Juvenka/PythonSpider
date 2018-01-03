@@ -4,9 +4,16 @@ import urllib.request
 import urllib.error
 import bs4
 firsturl = "http://1024.2048xd.info/pw/thread.php?fid=17"
-headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '
-                         'Chrome/61.0.3163.79 Safari/537.36'}
-
+headers = {
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'Accept-Encoding': 'gzip, deflate, sdch',
+    'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,zh-TW;q=0.4,ja;q=0.2',
+    'Cache-Control': 'max-age=0',
+    'Connection': 'keep-alive',
+    'Cookie': '__cfduid=ddb8daa0dc19b329c045d18206beca53e1508984433; aafaf_ol_offset=97; aafaf_lastpos=F17; aafaf_lastvisit=242%091514955089%09%2Fpw%2Fthread.php%3Ffid%3D17; aafaf_threadlog=%2C17%2C; a0888_pages=4; a0888_times=4; __tins__17810888=%7B%22sid%22%3A%201514954964593%2C%20%22vd%22%3A%202%2C%20%22expires%22%3A%201514956776147%7D; __51cke__=; __51laig__=2',
+    'Upgrade-Insecure-Requests': '1',
+    'Host': '1024.2048xd.info',
+    'User-Agent': 'Mozilla / 5.0(Windows NT 6.1;WOW64) AppleWebKit / 537.36(KHTML, likeGecko) Chrome / 55.0.2883.87Safari / 537.36'}
 URL = urllib.request.Request(firsturl, headers=headers)
 h = urllib.request.urlopen(URL)
 html_web = bs4.BeautifulSoup(h, 'html5lib', from_encoding='UTF-8')
