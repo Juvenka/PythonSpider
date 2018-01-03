@@ -2,23 +2,21 @@ import requests
 import os
 import bs4
 import time
-start =time.clock()
+start = time .clock()
 
 #中间写上代码块
 
 firsturl = "http://1024.2048xd.info/pw/thread.php?fid=17"
 headers = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-    'Accept-Encoding': 'gzip, deflate',
-    'Accept-Language': 'zh-CN,zh;q=0.8',
+    'Accept-Encoding': 'gzip, deflate, sdch',
+    'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,zh-TW;q=0.4,ja;q=0.2',
     'Cache-Control': 'max-age=0',
     'Connection': 'keep-alive',
-    'Cookie': '__cfduid=dca3abd512615187557755e6e4c9b91e61509545168; aafaf_ol_offset=97; aafaf_readlog=%2C734300%2C; visid_incap_1237688=Pbqrd0t6RpK+1Ohe33h27jo+GVoAAAAAQUIPAAAAAADmt0J0AR4HdbpKp/rlaoR5; incap_ses_636_1237688=bh4CdSpO9UuhzcU3CofTCDo+GVoAAAAArEuaH5QVGCELxwPVoGOb5g==; aafaf_lastpos=F17; aafaf_lastvisit=341%091511603847%09%2Fpw%2Fthread.php%3Ffid%3D17; aafaf_threadlog=%2C3%2C17%2C; a0888_pages=2; a0888_times=3; __tins__17810888=%7B%22sid%22%3A1511603755874%2C%22vd%22%3A2%2C%22expires%22%3A1511605561640%7D; __51cke__=; __51laig__=2',
+    'Cookie': '__cfduid=ddb8daa0dc19b329c045d18206beca53e1508984433; aafaf_ol_offset=97; aafaf_lastpos=F17; aafaf_lastvisit=242%091514955089%09%2Fpw%2Fthread.php%3Ffid%3D17; aafaf_threadlog=%2C17%2C; a0888_pages=4; a0888_times=4; __tins__17810888=%7B%22sid%22%3A%201514954964593%2C%20%22vd%22%3A%202%2C%20%22expires%22%3A%201514956776147%7D; __51cke__=; __51laig__=2',
     'Upgrade-Insecure-Requests': '1',
-    'Host': '1024.skswk9.pw',
-    'Referer': 'http://1024.skswk9.pw/pw/thread.php?fid=3',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 '
-                  '(KHTML, like Gecko) Chrome/61.0.3163.79 Safari/537.36'}
+    'Host': '1024.2048xd.info',
+    'User-Agent': 'Mozilla / 5.0(Windows NT 6.1;WOW64) AppleWebKit / 537.36(KHTML, likeGecko) Chrome / 55.0.2883.87Safari / 537.36'}
 URL = requests.get(firsturl, headers=headers, timeout=None)
 html_web = bs4.BeautifulSoup(URL.content, 'html5lib')
 target = html_web.find_all(name='a', attrs={'class': 'a2 fn'})
